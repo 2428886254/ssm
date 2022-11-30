@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?><!--声明xml版本号是1.0 ，编码是utf-8-->
+<!--xml的约束规定当前配置文件中能够使用那些标签-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!--Mybatis核心配置文件中的标签必须按照指定的顺序配置
+    (properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,
+    objectWrapperFactory?,reflectorFactory?,plugins?,environments?,
+    databaseIdProvider?,mappers?)".-->
+
+    <settings>
+        <!--将下划线映射为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--开启延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--开启按需加载-->
+        <setting name="aggressiveLazyLoading" value="true"/>
+    </settings>
+
+    <!--
+        typeAliases:设置类型别名，即为某个具体的类型设置一个别名
+        在Mybatis的范围中，就可以使用别名表示一个具体的类型
+    -->
+    <typeAliases>
+        <package name="com.cjl.pojo"></package>
+    </typeAliases>
+
+    <!-- 引入mybatis的映射文件 -->
+    <mappers>
+        <mapper resource="mappers/BookMapper.xml"></mapper>
+    </mappers>
+
+</configuration>
